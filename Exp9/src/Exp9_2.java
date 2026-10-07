@@ -1,14 +1,22 @@
-
+import java.util.Scanner;
 public class Exp9_2 {
 
 	public static void main(String[] args) {
 		// TODO 自動生成されたメソッド・スタブ
 
+		Scanner sc = new Scanner(System.in);
 		RamenShop rs = new RamenShop();
-		rs.reserveSeats("すする", 2);
+		rs.showWelcome();
+		String name = sc.nextLine();
+		int people = sc.nextInt();
+		rs.reserveSeats(name,people );
 		rs.showMenu();
-		rs.orderRamen(1, 2);
-		rs.orderRamen(3, 1);
+		int menuNumber = sc.nextInt();
+		int quantity = sc.nextInt();
+		rs.orderRamen(menuNumber, quantity);
+		int payment = sc.nextInt();
+		System.out.println("おつり" + rs.checkout(payment) + "円です");
+		
 	}
 
 }
